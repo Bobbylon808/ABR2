@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <!-- Basic CSP that allows Tailwind resources -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://cdn.tailwindcss.com;
-    script-src 'self' https://cdn.tailwindcss.com;
-    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-  ">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    /* Modal styling */
+    /* Modal styles */
     .modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       display: none;
       align-items: center;
       justify-content: center;
@@ -26,17 +20,15 @@
     .modal.active { display: flex; }
     .modal-content {
       background: white;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 0.5rem;
       max-width: 90%;
-      max-height: 90%;
-      overflow-y: auto;
       position: relative;
     }
     .close-btn {
       position: absolute;
       top: 0.5rem;
-      right: 0.75rem;
+      right: 0.5rem;
       font-size: 1.5rem;
       cursor: pointer;
     }
@@ -44,39 +36,33 @@
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen">
   
-  <!-- Hero Section -->
-  <section class="pt-20 pb-10 text-center bg-pink-500 text-white">
-    <h1 class="text-4xl font-bold mb-10">Beautiful Nails by Allison</h1>
-    <p class="text-lg">Experience luxurious nail care and stunning designs.</p>
-  </section>
-  
-  <!-- Quick Options Section with Boxes -->
-  <section class="py-10">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Hero / Intro Section -->
+  <div class="p-10 text-center">
+    <h1 class="text-3xl font-bold mb-8">Beautiful Nails by Allison</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <!-- Services Box -->
-      <button onclick="openModal('servicesModal')" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
-        <span class="text-6xl">💅</span>
-        <span class="mt-4 text-xl font-bold">Services</span>
+      <button onclick="openModal('servicesModal')" class="p-6 bg-white shadow rounded text-4xl">
+        💅<br>
+        <span class="text-xl font-bold">Services</span>
       </button>
       <!-- Contact Box -->
-      <button onclick="openModal('contactModal')" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
-        <span class="text-6xl">💅</span>
-        <span class="mt-4 text-xl font-bold">Contact</span>
+      <button onclick="openModal('contactModal')" class="p-6 bg-white shadow rounded text-4xl">
+        💅<br>
+        <span class="text-xl font-bold">Contact</span>
       </button>
       <!-- Instagram Box -->
-      <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
-        <span class="text-6xl">💅</span>
-        <span class="mt-4 text-xl font-bold">Instagram</span>
+      <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="p-6 bg-white shadow rounded text-4xl">
+        💅<br>
+        <span class="text-xl font-bold">Instagram</span>
       </a>
     </div>
-  </section>
+  </div>
   
   <!-- Services Modal -->
   <div id="servicesModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('servicesModal')">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Our Manicure Services</h2>
-      <!-- You can add a slideshow or additional content here -->
       <p>Here you can provide more detailed information about each service. For example:</p>
       <ul class="list-disc pl-5 mt-4">
         <li><strong>Gel X:</strong> Lightweight extensions that provide a natural look and feel.</li>
@@ -94,32 +80,33 @@
       <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
       <form action="mailto:allisongonzalez339@gmail.com" method="post" enctype="text/plain" class="space-y-4">
         <div>
-          <label for="name" class="block text-sm font-bold mb-1">Name</label>
-          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded" required>
+          <label for="name" class="block mb-1 font-bold">Name</label>
+          <input type="text" id="name" name="name" class="w-full border p-2 rounded" required>
         </div>
         <div>
-          <label for="email" class="block text-sm font-bold mb-1">Email</label>
-          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded" required>
+          <label for="email" class="block mb-1 font-bold">Email</label>
+          <input type="email" id="email" name="email" class="w-full border p-2 rounded" required>
         </div>
         <div>
-          <label for="message" class="block text-sm font-bold mb-1">Message</label>
-          <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 p-2 rounded" required></textarea>
+          <label for="message" class="block mb-1 font-bold">Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full border p-2 rounded" required></textarea>
         </div>
-        <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded shadow">Send</button>
+        <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded">Send</button>
       </form>
     </div>
   </div>
   
-  <!-- Inline JavaScript for Modal Functions -->
+  <!-- Inline JavaScript for Modals -->
   <script>
-    function openModal(modalId) {
-      document.getElementById(modalId).classList.add('active');
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
     }
-    function closeModal(modalId) {
-      document.getElementById(modalId).classList.remove('active');
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
     }
   </script>
+  
 </body>
 </html>
 
- 
+  
