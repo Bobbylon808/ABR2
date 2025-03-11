@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Allow images from self, source.unsplash.com, images.unsplash.com, and data URIs -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://source.unsplash.com https://images.unsplash.com data:;">
+  <!-- Updated Content-Security-Policy to allow Tailwind CDN and necessary sources -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://cdn.tailwindcss.com;
+    script-src 'self' https://cdn.tailwindcss.com;
+    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
+    img-src 'self' https://source.unsplash.com https://images.unsplash.com data:;
+  ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -162,5 +167,3 @@
 </body>
 </html>
 
-
-  
