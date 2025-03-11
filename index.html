@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Adjusted CSP to allow Tailwind resources -->
+  <!-- Basic CSP that allows Tailwind resources -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self' https://cdn.tailwindcss.com;
     script-src 'self' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
   ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Allison's Nail's</title>
+  <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
@@ -40,29 +40,26 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
-    /* Slideshow styles */
-    .slide { display: none; }
-    .slide.active { display: block; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen">
   
   <!-- Hero Section -->
   <section class="pt-20 pb-10 text-center bg-pink-500 text-white">
-    <h1 class="text-4xl font-bold">Beautiful Nails by Allison</h1>
-    <p class="mt-4 text-lg">Experience luxurious nail care and stunning designs.</p>
+    <h1 class="text-4xl font-bold mb-10">Beautiful Nails by Allison</h1>
+    <p class="text-lg">Experience luxurious nail care and stunning designs.</p>
   </section>
   
   <!-- Quick Options Section with Boxes -->
   <section class="py-10">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Services Box -->
-      <button id="btnServices" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
+      <button onclick="openModal('servicesModal')" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Services</span>
       </button>
       <!-- Contact Box -->
-      <button id="btnContact" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
+      <button onclick="openModal('contactModal')" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Contact</span>
       </button>
@@ -74,42 +71,26 @@
     </div>
   </section>
   
-  <!-- Services Modal with Slideshow -->
+  <!-- Services Modal -->
   <div id="servicesModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" data-close="servicesModal">&times;</span>
+      <span class="close-btn" onclick="closeModal('servicesModal')">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Our Manicure Services</h2>
-      <!-- Slideshow Container -->
-      <div id="slideshow">
-        <div class="slide active">
-          <h3 class="text-xl font-bold mb-2">Gel X</h3>
-          <p>Lightweight extensions that provide a natural look and feel. Perfect for a subtle enhancement.</p>
-        </div>
-        <div class="slide">
-          <h3 class="text-xl font-bold mb-2">Acrylic</h3>
-          <p>Durable and long-lasting extensions for added strength. Ideal for those who want a bold look.</p>
-        </div>
-        <div class="slide">
-          <h3 class="text-xl font-bold mb-2">Builder Gel</h3>
-          <p>Strengthens natural nails while allowing for extension and shaping. Great for nail art designs.</p>
-        </div>
-        <div class="slide">
-          <h3 class="text-xl font-bold mb-2">Russian Manicure</h3>
-          <p>A detailed cuticle care technique for a flawless finish. Perfect for a meticulous nail care routine.</p>
-        </div>
-      </div>
-      <!-- Slideshow Controls -->
-      <div class="flex justify-between mt-4">
-        <button id="prevSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Prev</button>
-        <button id="nextSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Next</button>
-      </div>
+      <!-- You can add a slideshow or additional content here -->
+      <p>Here you can provide more detailed information about each service. For example:</p>
+      <ul class="list-disc pl-5 mt-4">
+        <li><strong>Gel X:</strong> Lightweight extensions that provide a natural look and feel.</li>
+        <li><strong>Acrylic:</strong> Durable and long-lasting extensions for added strength.</li>
+        <li><strong>Builder Gel:</strong> Strengthens natural nails while allowing for extension and shaping.</li>
+        <li><strong>Russian Manicure:</strong> A detailed cuticle care technique for a flawless finish.</li>
+      </ul>
     </div>
   </div>
   
-  <!-- Contact Modal with Form -->
+  <!-- Contact Modal -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" data-close="contactModal">&times;</span>
+      <span class="close-btn" onclick="closeModal('contactModal')">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
       <form action="mailto:allisongonzalez339@gmail.com" method="post" enctype="text/plain" class="space-y-4">
         <div>
@@ -129,57 +110,16 @@
     </div>
   </div>
   
-  <!-- JavaScript for Modals and Slideshow -->
+  <!-- Inline JavaScript for Modal Functions -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get modal elements
-      const servicesModal = document.getElementById('servicesModal');
-      const contactModal = document.getElementById('contactModal');
-      const btnServices = document.getElementById('btnServices');
-      const btnContact = document.getElementById('btnContact');
-      
-      // Open modals when buttons are clicked
-      btnServices.addEventListener('click', function() {
-        servicesModal.classList.add('active');
-      });
-      btnContact.addEventListener('click', function() {
-        contactModal.classList.add('active');
-      });
-      
-      // Close modal when clicking on the close button
-      document.querySelectorAll('.close-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          const modalId = btn.getAttribute('data-close');
-          document.getElementById(modalId).classList.remove('active');
-        });
-      });
-      
-      // Close modal when clicking outside modal content
-      document.querySelectorAll('.modal').forEach(function(modal) {
-        modal.addEventListener('click', function(e) {
-          if (e.target === modal) {
-            modal.classList.remove('active');
-          }
-        });
-      });
-      
-      // Slideshow functionality in the Services modal
-      const slides = document.querySelectorAll('#slideshow .slide');
-      let currentSlide = 0;
-      document.getElementById('nextSlide').addEventListener('click', function() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      });
-      document.getElementById('prevSlide').addEventListener('click', function() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-      });
-    });
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
   </script>
 </body>
 </html>
 
-     
-
+ 
