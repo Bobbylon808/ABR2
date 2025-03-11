@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Adjusted CSP to allow resources from Tailwind -->
+  <!-- Adjusted CSP to allow Tailwind resources -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self' https://cdn.tailwindcss.com;
     script-src 'self' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
   ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nail Business</title>
+  <title>Allison's Nail's</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    /* Modal container */
+    /* Modal styling */
     .modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       display: none;
       align-items: center;
       justify-content: center;
@@ -45,16 +45,16 @@
     .slide.active { display: block; }
   </style>
 </head>
-<body class="text-gray-900 bg-gray-100 min-h-screen">
+<body class="bg-gray-100 text-gray-900 min-h-screen">
   
   <!-- Hero Section -->
-  <section id="hero" class="pt-20 pb-10 text-center bg-pink-500 text-white">
+  <section class="pt-20 pb-10 text-center bg-pink-500 text-white">
     <h1 class="text-4xl font-bold">Beautiful Nails by Allison</h1>
     <p class="mt-4 text-lg">Experience luxurious nail care and stunning designs.</p>
   </section>
   
-  <!-- Quick Options Section (Boxes as Icons) -->
-  <section id="quickOptions" class="py-10">
+  <!-- Quick Options Section with Boxes -->
+  <section class="py-10">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Services Box -->
       <button id="btnServices" class="flex flex-col items-center justify-center p-6 bg-white shadow rounded hover:bg-pink-100">
@@ -76,7 +76,7 @@
   
   <!-- Services Modal with Slideshow -->
   <div id="servicesModal" class="modal">
-    <div class="modal-content relative">
+    <div class="modal-content">
       <span class="close-btn" data-close="servicesModal">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Our Manicure Services</h2>
       <!-- Slideshow Container -->
@@ -108,21 +108,21 @@
   
   <!-- Contact Modal with Form -->
   <div id="contactModal" class="modal">
-    <div class="modal-content relative">
+    <div class="modal-content">
       <span class="close-btn" data-close="contactModal">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
       <form action="mailto:allisongonzalez339@gmail.com" method="post" enctype="text/plain" class="space-y-4">
         <div>
-          <label class="block text-sm font-bold mb-1" for="name">Name</label>
-          <input class="w-full border border-gray-300 p-2 rounded" type="text" id="name" name="name" required>
+          <label for="name" class="block text-sm font-bold mb-1">Name</label>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
         <div>
-          <label class="block text-sm font-bold mb-1" for="email">Email</label>
-          <input class="w-full border border-gray-300 p-2 rounded" type="email" id="email" name="email" required>
+          <label for="email" class="block text-sm font-bold mb-1">Email</label>
+          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
         <div>
-          <label class="block text-sm font-bold mb-1" for="message">Message</label>
-          <textarea class="w-full border border-gray-300 p-2 rounded" id="message" name="message" rows="4" required></textarea>
+          <label for="message" class="block text-sm font-bold mb-1">Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 p-2 rounded" required></textarea>
         </div>
         <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded shadow">Send</button>
       </form>
@@ -135,41 +135,43 @@
       // Get modal elements
       const servicesModal = document.getElementById('servicesModal');
       const contactModal = document.getElementById('contactModal');
-
-      // Open modals when corresponding buttons are clicked
-      document.getElementById('btnServices').addEventListener('click', () => {
+      const btnServices = document.getElementById('btnServices');
+      const btnContact = document.getElementById('btnContact');
+      
+      // Open modals when buttons are clicked
+      btnServices.addEventListener('click', function() {
         servicesModal.classList.add('active');
       });
-      document.getElementById('btnContact').addEventListener('click', () => {
+      btnContact.addEventListener('click', function() {
         contactModal.classList.add('active');
       });
-
-      // Close modal when clicking on close button
-      document.querySelectorAll('.close-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+      
+      // Close modal when clicking on the close button
+      document.querySelectorAll('.close-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
           const modalId = btn.getAttribute('data-close');
           document.getElementById(modalId).classList.remove('active');
         });
       });
-
-      // Close modal when clicking outside the modal content
-      document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
+      
+      // Close modal when clicking outside modal content
+      document.querySelectorAll('.modal').forEach(function(modal) {
+        modal.addEventListener('click', function(e) {
           if (e.target === modal) {
             modal.classList.remove('active');
           }
         });
       });
-
-      // Slideshow functionality for Services Modal
+      
+      // Slideshow functionality in the Services modal
       const slides = document.querySelectorAll('#slideshow .slide');
       let currentSlide = 0;
-      document.getElementById('nextSlide').addEventListener('click', () => {
+      document.getElementById('nextSlide').addEventListener('click', function() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
       });
-      document.getElementById('prevSlide').addEventListener('click', () => {
+      document.getElementById('prevSlide').addEventListener('click', function() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         slides[currentSlide].classList.add('active');
@@ -179,4 +181,5 @@
 </body>
 </html>
 
- 
+     
+
