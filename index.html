@@ -38,7 +38,7 @@
     }
   </style>
 </head>
-<body class="text-gray-900" style="background-image: url('https://via.placeholder.com/1920x1080?text=Background'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;">
+<body class="text-gray-900" style="background-image: url('https://picsum.photos/1920/1080?blur=2'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;">
   
   <!-- Navigation Bar -->
   <nav class="bg-pink-500 text-white p-4 fixed w-full z-30 top-0 shadow">
@@ -67,28 +67,28 @@
     <!-- Bullet Points for Manicure Types -->
     <ul class="list-disc pl-5 mt-4 space-y-4 max-w-3xl mx-auto text-left">
       <li class="flex items-center space-x-4">
-        <img src="https://via.placeholder.com/150?text=Gel+X" alt="Gel X Manicure" class="w-16 h-16 rounded-full">
+        <img src="https://picsum.photos/150?random=1" alt="Gel X Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Gel X</p>
           <p class="text-sm">Lightweight extensions that provide a natural look and feel.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://via.placeholder.com/150?text=Acrylic" alt="Acrylic Manicure" class="w-16 h-16 rounded-full">
+        <img src="https://picsum.photos/150?random=2" alt="Acrylic Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Acrylic</p>
           <p class="text-sm">Durable and long-lasting extensions for added strength.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://via.placeholder.com/150?text=Builder+Gel" alt="Builder Gel Manicure" class="w-16 h-16 rounded-full">
+        <img src="https://picsum.photos/150?random=3" alt="Builder Gel Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Builder Gel</p>
           <p class="text-sm">Strengthens natural nails while allowing for extension and shaping.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://via.placeholder.com/150?text=Russian+Manicure" alt="Russian Manicure" class="w-16 h-16 rounded-full">
+        <img src="https://picsum.photos/150?random=4" alt="Russian Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Russian Manicure</p>
           <p class="text-sm">A detailed cuticle care technique for a flawless finish.</p>
@@ -101,10 +101,10 @@
   <section id="gallery" class="text-center p-10 bg-white">
     <h2 class="text-2xl font-semibold">Gallery</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-      <img src="https://via.placeholder.com/300?text=Nail+Art" alt="Nail Art" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://via.placeholder.com/300?text=Manicure" alt="Manicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://via.placeholder.com/300?text=Pedicure" alt="Pedicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://via.placeholder.com/300?text=Gel+Nails" alt="Gel Nails" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://picsum.photos/300?random=5" alt="Nail Art" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://picsum.photos/300?random=6" alt="Manicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://picsum.photos/300?random=7" alt="Pedicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://picsum.photos/300?random=8" alt="Gel Nails" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
     </div>
   </section>
   
@@ -114,4 +114,54 @@
     <img class="modal-content" id="modal-img" alt="Expanded Image">
   </div>
   
+  <!-- Contact Section -->
+  <section id="contact" class="text-center p-10">
+    <h2 class="text-2xl font-semibold">Contact Us</h2>
+    <p class="mt-4">Book your appointment today!</p>
+    <a href="tel:+1234567890" class="block mt-2 text-pink-500 font-bold">Call: +1 234-567-890</a>
+    <a href="mailto:info@nailbusiness.com" class="block text-pink-500 font-bold">Email: info@nailbusiness.com</a>
+  </section>
+  
+  <!-- Instagram Section -->
+  <section id="instagram" class="text-center p-10 bg-gray-100">
+    <h2 class="text-2xl font-semibold">Check out my latest nail designs!</h2>
+    <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="mt-4 inline-block bg-pink-500 text-white font-bold py-2 px-4 rounded-lg shadow">Visit My Instagram</a>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-pink-500 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 Beautiful Nails by Allison. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript for Modal Functionality -->
+  <script>
+    // Get modal element and its components
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeModal = document.querySelector(".close-modal");
+    
+    // Get all gallery images
+    const galleryImages = document.querySelectorAll(".gallery-img");
+    galleryImages.forEach(img => {
+      img.addEventListener("click", function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      });
+    });
+    
+    // Close modal when the close button is clicked
+    closeModal.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
   
