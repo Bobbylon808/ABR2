@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Adjusted CSP to allow resources from Tailwind -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https://cdn.tailwindcss.com;
+    script-src 'self' https://cdn.tailwindcss.com;
+    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
+  ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -9,92 +15,200 @@
     html {
       scroll-behavior: smooth;
     }
+    /* Modal container */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    /* Slideshow styles */
+    .slide {
+      display: none;
+    }
+    .slide.active {
+      display: block;
+    }
   </style>
 </head>
-<body class="text-gray-900" style="background-color: #f8fafc; min-height: 100vh;">
+<body class="text-gray-900 bg-gray-100 min-h-screen">
   
   <!-- Navigation Bar -->
-  <nav class="bg-pink-500 text-white p-4 fixed w-full z-30 top-0 shadow">
+  <nav class="bg-pink-500 text-white p-4 fixed w-full z-40 top-0 shadow">
     <div class="container mx-auto flex justify-between items-center">
       <div class="text-xl font-bold">Beautiful Nails by Allison</div>
       <ul class="flex space-x-4">
-        <li><a href="#home" class="hover:underline">Home</a></li>
-        <li><a href="#services" class="hover:underline">Services</a></li>
-        <li><a href="#gallery" class="hover:underline">Gallery</a></li>
-        <li><a href="#contact" class="hover:underline">Contact</a></li>
-        <li><a href="#instagram" class="hover:underline">Instagram</a></li>
+        <li><button id="navHome" class="hover:underline">Home</button></li>
+        <li><button id="navServices" class="hover:underline">Services</button></li>
+        <li><button id="navContact" class="hover:underline">Contact</button></li>
+        <li>
+          <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="hover:underline">
+            Instagram
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
   
-  <!-- Hero Section -->
-  <header id="home" class="pt-20 bg-pink-500 text-white p-5 text-center text-xl font-bold">
-    <h1>Welcome to Beautiful Nails by Allison</h1>
-  </header>
+  <!-- Main Page Content (can be kept in the background if desired) -->
+  <main class="pt-20">
+    <section id="hero" class="p-10 text-center bg-pink-500 text-white">
+      <h1 class="text-3xl font-bold">Welcome to Beautiful Nails by Allison</h1>
+      <p class="mt-4">Experience luxurious nail care and the latest designs.</p>
+    </section>
+    <!-- Other sections can go here if needed -->
+  </main>
   
-  <!-- Services Section -->
-  <section id="services" class="text-center p-10 bg-gray-100">
-    <h2 class="text-2xl font-semibold">My Services</h2>
-    <p class="mt-4">Offering professional manicures using various techniques:</p>
-    <!-- List without images -->
-    <ul class="list-disc pl-5 mt-4 space-y-4 max-w-3xl mx-auto text-left">
-      <li>
-        <div>
-          <p class="font-bold">Gel X</p>
-          <p class="text-sm">Lightweight extensions that provide a natural look and feel.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="font-bold">Acrylic</p>
-          <p class="text-sm">Durable and long-lasting extensions for added strength.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="font-bold">Builder Gel</p>
-          <p class="text-sm">Strengthens natural nails while allowing for extension and shaping.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="font-bold">Russian Manicure</p>
-          <p class="text-sm">A detailed cuticle care technique for a flawless finish.</p>
-        </div>
-      </li>
-    </ul>
-  </section>
-  
-  <!-- Gallery Section -->
-  <section id="gallery" class="text-center p-10 bg-white">
-    <h2 class="text-2xl font-semibold">Gallery</h2>
-    <!-- Empty grid for manual addition of videos and photos -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-      <!-- Add your media here -->
+  <!-- Home Modal -->
+  <div id="homeModal" class="modal">
+    <div class="modal-content relative">
+      <span class="close-btn" data-close="homeModal">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Home</h2>
+      <p>Welcome to Beautiful Nails by Allison! Here you can learn about our services, view our portfolio, and get in touch with us.</p>
+      <!-- Add more home page content here as desired -->
     </div>
-  </section>
+  </div>
   
-  <!-- Contact Section -->
-  <section id="contact" class="text-center p-10">
-    <h2 class="text-2xl font-semibold">Contact Us</h2>
-    <p class="mt-4">Book your appointment today!</p>
-    <a href="tel:+1234567890" class="block mt-2 text-pink-500 font-bold">Call: +1 234-567-890</a>
-    <a href="mailto:info@nailbusiness.com" class="block text-pink-500 font-bold">Email: info@nailbusiness.com</a>
-  </section>
+  <!-- Services Modal with Slideshow -->
+  <div id="servicesModal" class="modal">
+    <div class="modal-content relative">
+      <span class="close-btn" data-close="servicesModal">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Our Manicure Services</h2>
+      
+      <!-- Slideshow Container -->
+      <div id="slideshow">
+        <!-- Slide 1: Gel X -->
+        <div class="slide active">
+          <h3 class="text-xl font-bold mb-2">Gel X</h3>
+          <p>Lightweight extensions that provide a natural look and feel. Perfect for a subtle enhancement.</p>
+        </div>
+        <!-- Slide 2: Acrylic -->
+        <div class="slide">
+          <h3 class="text-xl font-bold mb-2">Acrylic</h3>
+          <p>Durable and long-lasting extensions for added strength. Ideal for those who want a bold look.</p>
+        </div>
+        <!-- Slide 3: Builder Gel -->
+        <div class="slide">
+          <h3 class="text-xl font-bold mb-2">Builder Gel</h3>
+          <p>Strengthens natural nails while allowing for extension and shaping. Great for nail art designs.</p>
+        </div>
+        <!-- Slide 4: Russian Manicure -->
+        <div class="slide">
+          <h3 class="text-xl font-bold mb-2">Russian Manicure</h3>
+          <p>A detailed cuticle care technique for a flawless finish. Perfect for a meticulous nail care routine.</p>
+        </div>
+      </div>
+      <!-- Slideshow Controls -->
+      <div class="flex justify-between mt-4">
+        <button id="prevSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Prev</button>
+        <button id="nextSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Next</button>
+      </div>
+    </div>
+  </div>
   
-  <!-- Instagram Section -->
-  <section id="instagram" class="text-center p-10 bg-gray-100">
-    <h2 class="text-2xl font-semibold">Check out my latest nail designs!</h2>
-    <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="mt-4 inline-block bg-pink-500 text-white font-bold py-2 px-4 rounded-lg shadow">Visit My Instagram</a>
-  </section>
+  <!-- Contact Modal with Form -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content relative">
+      <span class="close-btn" data-close="contactModal">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+      <form action="mailto:allisongonzalez339@gmail.com" method="post" enctype="text/plain" class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold mb-1" for="name">Name</label>
+          <input class="w-full border border-gray-300 p-2 rounded" type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1" for="email">Email</label>
+          <input class="w-full border border-gray-300 p-2 rounded" type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-1" for="message">Message</label>
+          <textarea class="w-full border border-gray-300 p-2 rounded" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded shadow">Send</button>
+      </form>
+    </div>
+  </div>
   
-  <!-- Footer -->
-  <footer class="bg-pink-500 text-white text-center p-4 mt-10">
-    <p>&copy; 2025 Beautiful Nails by Allison. All rights reserved.</p>
-  </footer>
-  
+  <!-- JavaScript for Modals and Slideshow -->
+  <script>
+    // Modal Functionality
+    const modals = {
+      home: document.getElementById('homeModal'),
+      services: document.getElementById('servicesModal'),
+      contact: document.getElementById('contactModal')
+    };
+
+    // Open modal when corresponding nav button is clicked
+    document.getElementById('navHome').addEventListener('click', () => {
+      modals.home.classList.add('active');
+    });
+    document.getElementById('navServices').addEventListener('click', () => {
+      modals.services.classList.add('active');
+    });
+    document.getElementById('navContact').addEventListener('click', () => {
+      modals.contact.classList.add('active');
+    });
+
+    // Close modal when clicking on close button
+    document.querySelectorAll('.close-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modalId = btn.getAttribute('data-close');
+        document.getElementById(modalId).classList.remove('active');
+      });
+    });
+
+    // Close modal when clicking outside modal content
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+
+    // Slideshow functionality for Services Modal
+    const slides = document.querySelectorAll('#slideshow .slide');
+    let currentSlide = 0;
+
+    document.getElementById('nextSlide').addEventListener('click', () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    });
+
+    document.getElementById('prevSlide').addEventListener('click', () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    });
+  </script>
 </body>
 </html>
 
-
-
+ 
+  
