@@ -48,39 +48,26 @@
     <p class="text-lg">Experience luxurious nail care and stunning designs.</p>
   </header>
 
-  <!-- Quick Options Section with your uploaded background image -->
-  <section class="py-10"
-    style="
+  <!-- Quick Options Section with Local Background Image (Bigger) -->
+  <section class="py-10" style="
       background-image: url('IMG_8037.jpeg');
       background-size: cover;
       background-position: center;
-    "
-  >
+      min-height: 600px;
+    ">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Services Box -->
-      <button
-        onclick="openModal('servicesModal')"
-        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
-      >
+      <button onclick="openModal('servicesModal')" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Services</span>
       </button>
-
       <!-- Book with me Box -->
-      <button
-        onclick="openModal('contactModal')"
-        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
-      >
+      <button onclick="openModal('contactModal')" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Book with me</span>
       </button>
-
       <!-- Instagram Box -->
-      <a
-        href="https://www.instagram.com/allisonsbeautyroom"
-        target="_blank"
-        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
-      >
+      <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Instagram</span>
       </a>
@@ -127,7 +114,7 @@
     </div>
   </div>
 
-  <!-- JavaScript for Modals -->
+  <!-- Inline JavaScript for Modals -->
   <script>
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -140,5 +127,6 @@
 </body>
 </html>
 
- 
+      
+       
  
