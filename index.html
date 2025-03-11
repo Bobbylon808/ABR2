@@ -2,13 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Updated CSP to allow Tailwind and Unsplash images -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://cdn.tailwindcss.com;
-    script-src 'self' https://cdn.tailwindcss.com;
-    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-    img-src 'self' https://source.unsplash.com https://images.unsplash.com data:;
-  ">
+  <!-- Temporarily relaxed Content-Security-Policy for testing -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; img-src * data:;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
