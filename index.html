@@ -38,6 +38,12 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
+    /* Background section styling */
+    .bg-section {
+      background-size: cover;
+      background-position: center;
+      min-height: 1000px;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen">
@@ -48,25 +54,9 @@
     <p class="text-lg">Experience luxurious nail care and stunning designs.</p>
   </header>
 
-  <!-- Image Gallery Section: Two images stacked vertically -->
-  <section class="py-10 bg-white">
-    <div class="container mx-auto flex flex-col items-center space-y-8">
-      <!-- First Image -->
-      <img src="IMG_8037.jpeg" alt="First Image" class="w-72 h-72 rounded shadow">
-      <!-- Second Image -->
-      <img src="second-image.jpg" alt="Second Image" class="w-72 h-72 rounded shadow">
-    </div>
-  </section>
-
-  <!-- Quick Options Section with Background Image (optional) -->
-  <!-- If you no longer need the background in this section, you can remove the background-image style -->
-  <section class="py-10" style="
-      background-image: url('IMG_8037.jpeg');
-      background-size: cover;
-      background-position: center;
-      min-height: 1000px;
-    ">
-    <div class="container mx-auto flex flex-col items-center space-y-8">
+  <!-- Section 1: First Background with Boxes -->
+  <section class="relative bg-section" style="background-image: url('IMG_8037.jpeg');">
+    <div class="container mx-auto flex flex-col items-center space-y-8 py-10">
       <!-- Services Box -->
       <button onclick="openModal('servicesModal')" class="w-72 h-72 flex flex-col items-center justify-center p-8 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
         <span class="text-6xl">💅</span>
@@ -85,13 +75,19 @@
     </div>
   </section>
 
+  <!-- Section 2: Second Background -->
+  <section class="bg-section" style="background-image: url('second-image.jpg');">
+    <div class="container mx-auto flex items-center justify-center py-10">
+      <!-- Optional Caption or Content -->
+      <p class="text-white text-2xl font-bold">Explore our nail art collection</p>
+    </div>
+  </section>
+
   <!-- Services Modal -->
   <div id="servicesModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('servicesModal')">&times;</span>
-      <h2 class="text-2xl font-bold mb-4">
-        My manicure services.
-      </h2>
+      <h2 class="text-2xl font-bold mb-4">My manicure services.</h2>
       <p>Learn more about my services:</p>
       <ul class="list-disc pl-5 mt-4">
         <li><strong>Gel X:</strong> Lightweight extensions that provide a natural look and feel.</li>
@@ -137,3 +133,5 @@
 
 </body>
 </html>
+
+  
