@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Updated CSP to allow images from Pexels -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://cdn.tailwindcss.com;
-    script-src 'self' https://cdn.tailwindcss.com;
-    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-    img-src 'self' https://images.pexels.com data:;
-  ">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nail Business</title>
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    /* Modal styling */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Basic modal styling */
     .modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -24,7 +19,9 @@
       justify-content: center;
       z-index: 50;
     }
-    .modal.active { display: flex; }
+    .modal.active {
+      display: flex;
+    }
     .modal-content {
       background: white;
       padding: 1.5rem;
@@ -44,34 +41,52 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen">
-  
-  <!-- Hero Section with Pink Background -->
+
+  <!-- Pink Hero/Header -->
   <header class="pt-20 pb-10 text-center bg-pink-500 text-white">
-    <h1 class="text-4xl font-bold">Beautiful Nails by Allison</h1>
+    <h1 class="text-4xl font-bold mb-4">Beautiful Nails by Allison</h1>
     <p class="text-lg">Experience luxurious nail care and stunning designs.</p>
   </header>
-  
-  <!-- Quick Options Section with Background Image -->
-  <section class="py-10" style="background-image: url('https://images.pexels.com/photos/4031689/pexels-photo-4031689.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center;">
+
+  <!-- Quick Options Section with your uploaded background image -->
+  <section class="py-10"
+    style="
+      background-image: url('IMG_8037.jpeg');
+      background-size: cover;
+      background-position: center;
+    "
+  >
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Services Box -->
-      <button onclick="openModal('servicesModal')" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
+      <button
+        onclick="openModal('servicesModal')"
+        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
+      >
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Services</span>
       </button>
+
       <!-- Book with me Box -->
-      <button onclick="openModal('contactModal')" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
+      <button
+        onclick="openModal('contactModal')"
+        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
+      >
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Book with me</span>
       </button>
+
       <!-- Instagram Box -->
-      <a href="https://www.instagram.com/allisonsbeautyroom" target="_blank" class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100">
+      <a
+        href="https://www.instagram.com/allisonsbeautyroom"
+        target="_blank"
+        class="flex flex-col items-center justify-center p-6 bg-white bg-opacity-90 shadow rounded hover:bg-pink-100"
+      >
         <span class="text-6xl">💅</span>
         <span class="mt-4 text-xl font-bold">Instagram</span>
       </a>
     </div>
   </section>
-  
+
   <!-- Services Modal -->
   <div id="servicesModal" class="modal">
     <div class="modal-content">
@@ -88,8 +103,8 @@
       </ul>
     </div>
   </div>
-  
-  <!-- Contact (Book with me) Modal -->
+
+  <!-- Book with me (Contact) Modal -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('contactModal')">&times;</span>
@@ -111,8 +126,8 @@
       </form>
     </div>
   </div>
-  
-  <!-- Inline JavaScript for Modals -->
+
+  <!-- JavaScript for Modals -->
   <script>
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -121,8 +136,9 @@
       document.getElementById(id).classList.remove('active');
     }
   </script>
+
 </body>
 </html>
 
-
+ 
  
