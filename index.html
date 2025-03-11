@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Updated Content-Security-Policy to allow Tailwind CDN and necessary sources -->
+  <!-- Updated CSP to allow Tailwind and Unsplash images -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self' https://cdn.tailwindcss.com;
     script-src 'self' https://cdn.tailwindcss.com;
@@ -45,7 +45,7 @@
     }
   </style>
 </head>
-<body class="text-gray-900" style="background-image: url('https://source.unsplash.com/1920x1080/?nail-art'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;">
+<body class="text-gray-900" style="background-image: url('https://images.unsplash.com/photo-1573497019419-2b4a9d6f292b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&h=1080&q=80'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;">
   
   <!-- Navigation Bar -->
   <nav class="bg-pink-500 text-white p-4 fixed w-full z-30 top-0 shadow">
@@ -74,28 +74,32 @@
     <!-- Bullet Points for Manicure Types -->
     <ul class="list-disc pl-5 mt-4 space-y-4 max-w-3xl mx-auto text-left">
       <li class="flex items-center space-x-4">
-        <img src="https://source.unsplash.com/150x150/?gel-nails" alt="Gel X Manicure" class="w-16 h-16 rounded-full">
+        <!-- Static image for Gel X -->
+        <img src="https://images.unsplash.com/photo-1601233741062-dfa227ee9b83?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" alt="Gel X Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Gel X</p>
           <p class="text-sm">Lightweight extensions that provide a natural look and feel.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://source.unsplash.com/150x150/?acrylic-nails" alt="Acrylic Manicure" class="w-16 h-16 rounded-full">
+        <!-- Static image for Acrylic -->
+        <img src="https://images.unsplash.com/photo-1585238342020-c7053e5cc5ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" alt="Acrylic Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Acrylic</p>
           <p class="text-sm">Durable and long-lasting extensions for added strength.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://source.unsplash.com/150x150/?builder-gel-nails" alt="Builder Gel Manicure" class="w-16 h-16 rounded-full">
+        <!-- Static image for Builder Gel -->
+        <img src="https://images.unsplash.com/photo-1601022706221-23b34bd8530f?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" alt="Builder Gel Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Builder Gel</p>
           <p class="text-sm">Strengthens natural nails while allowing for extension and shaping.</p>
         </div>
       </li>
       <li class="flex items-center space-x-4">
-        <img src="https://source.unsplash.com/150x150/?russian-manicure" alt="Russian Manicure" class="w-16 h-16 rounded-full">
+        <!-- Static image for Russian Manicure -->
+        <img src="https://images.unsplash.com/photo-1586871509407-6cbec7b3a439?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" alt="Russian Manicure" class="w-16 h-16 rounded-full">
         <div>
           <p class="font-bold">Russian Manicure</p>
           <p class="text-sm">A detailed cuticle care technique for a flawless finish.</p>
@@ -108,10 +112,11 @@
   <section id="gallery" class="text-center p-10 bg-white">
     <h2 class="text-2xl font-semibold">Gallery</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-      <img src="https://source.unsplash.com/300x300/?nail-art" alt="Nail Art Design" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://source.unsplash.com/300x300/?manicure" alt="Manicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://source.unsplash.com/300x300/?nail-design" alt="Nail Design" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
-      <img src="https://source.unsplash.com/300x300/?nail-art,design" alt="Nail Designs" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <!-- Static images for gallery -->
+      <img src="https://images.unsplash.com/photo-1573497019419-2b4a9d6f292b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" alt="Nail Art Design" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://images.unsplash.com/photo-1585238342020-c7053e5cc5ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" alt="Manicure" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://images.unsplash.com/photo-1601022706221-23b34bd8530f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" alt="Nail Design" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
+      <img src="https://images.unsplash.com/photo-1586871509407-6cbec7b3a439?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" alt="Nail Designs" class="rounded-lg shadow transform transition duration-300 hover:scale-105 cursor-pointer gallery-img">
     </div>
   </section>
   
@@ -166,4 +171,5 @@
   </script>
 </body>
 </html>
+
 
