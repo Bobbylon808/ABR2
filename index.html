@@ -2,20 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Adjusted CSP to allow resources from Tailwind -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://cdn.tailwindcss.com;
-    script-src 'self' https://cdn.tailwindcss.com;
-    style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-  ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nail Business</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Modal container */
+    /* Modal container styles */
     .modal {
       position: fixed;
       top: 0;
@@ -32,7 +23,7 @@
       display: flex;
     }
     .modal-content {
-      background: white;
+      background-color: #fff;
       padding: 1.5rem;
       border-radius: 0.5rem;
       max-width: 90%;
@@ -56,10 +47,9 @@
     }
   </style>
 </head>
-<body class="text-gray-900 bg-gray-100 min-h-screen">
-  
+<body class="bg-gray-100 text-gray-900">
   <!-- Navigation Bar -->
-  <nav class="bg-pink-500 text-white p-4 fixed w-full z-40 top-0 shadow">
+  <nav class="bg-pink-500 text-white p-4 fixed top-0 w-full z-40 shadow">
     <div class="container mx-auto flex justify-between items-center">
       <div class="text-xl font-bold">Beautiful Nails by Allison</div>
       <ul class="flex space-x-4">
@@ -74,117 +64,110 @@
       </ul>
     </div>
   </nav>
-  
-  <!-- Main Page Content (can be kept in the background if desired) -->
+
+  <!-- Main content placeholder -->
   <main class="pt-20">
-    <section id="hero" class="p-10 text-center bg-pink-500 text-white">
+    <section class="p-10 text-center bg-pink-500 text-white">
       <h1 class="text-3xl font-bold">Welcome to Beautiful Nails by Allison</h1>
-      <p class="mt-4">Experience luxurious nail care and the latest designs.</p>
+      <p class="mt-4">Experience luxurious nail care and stunning designs.</p>
     </section>
-    <!-- Other sections can go here if needed -->
   </main>
-  
+
   <!-- Home Modal -->
   <div id="homeModal" class="modal">
-    <div class="modal-content relative">
+    <div class="modal-content">
       <span class="close-btn" data-close="homeModal">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Home</h2>
-      <p>Welcome to Beautiful Nails by Allison! Here you can learn about our services, view our portfolio, and get in touch with us.</p>
-      <!-- Add more home page content here as desired -->
+      <p>Welcome to our website! Here you can find our latest news, learn about our services, and get in touch with us.</p>
     </div>
   </div>
-  
+
   <!-- Services Modal with Slideshow -->
   <div id="servicesModal" class="modal">
-    <div class="modal-content relative">
+    <div class="modal-content">
       <span class="close-btn" data-close="servicesModal">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Our Manicure Services</h2>
-      
-      <!-- Slideshow Container -->
+      <!-- Slideshow container -->
       <div id="slideshow">
-        <!-- Slide 1: Gel X -->
         <div class="slide active">
           <h3 class="text-xl font-bold mb-2">Gel X</h3>
-          <p>Lightweight extensions that provide a natural look and feel. Perfect for a subtle enhancement.</p>
+          <p>Lightweight extensions that provide a natural look and feel. Ideal for a subtle enhancement.</p>
         </div>
-        <!-- Slide 2: Acrylic -->
         <div class="slide">
           <h3 class="text-xl font-bold mb-2">Acrylic</h3>
-          <p>Durable and long-lasting extensions for added strength. Ideal for those who want a bold look.</p>
+          <p>Durable and long-lasting extensions for added strength. Perfect for a bold look.</p>
         </div>
-        <!-- Slide 3: Builder Gel -->
         <div class="slide">
           <h3 class="text-xl font-bold mb-2">Builder Gel</h3>
           <p>Strengthens natural nails while allowing for extension and shaping. Great for nail art designs.</p>
         </div>
-        <!-- Slide 4: Russian Manicure -->
         <div class="slide">
           <h3 class="text-xl font-bold mb-2">Russian Manicure</h3>
-          <p>A detailed cuticle care technique for a flawless finish. Perfect for a meticulous nail care routine.</p>
+          <p>A detailed cuticle care technique for a flawless finish. Perfect for meticulous nail care.</p>
         </div>
       </div>
-      <!-- Slideshow Controls -->
+      <!-- Slideshow controls -->
       <div class="flex justify-between mt-4">
         <button id="prevSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Prev</button>
         <button id="nextSlide" class="bg-pink-500 text-white px-4 py-2 rounded">Next</button>
       </div>
     </div>
   </div>
-  
+
   <!-- Contact Modal with Form -->
   <div id="contactModal" class="modal">
-    <div class="modal-content relative">
+    <div class="modal-content">
       <span class="close-btn" data-close="contactModal">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
       <form action="mailto:allisongonzalez339@gmail.com" method="post" enctype="text/plain" class="space-y-4">
         <div>
-          <label class="block text-sm font-bold mb-1" for="name">Name</label>
-          <input class="w-full border border-gray-300 p-2 rounded" type="text" id="name" name="name" required>
+          <label for="name" class="block text-sm font-bold mb-1">Name</label>
+          <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
         <div>
-          <label class="block text-sm font-bold mb-1" for="email">Email</label>
-          <input class="w-full border border-gray-300 p-2 rounded" type="email" id="email" name="email" required>
+          <label for="email" class="block text-sm font-bold mb-1">Email</label>
+          <input type="email" id="email" name="email" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
         <div>
-          <label class="block text-sm font-bold mb-1" for="message">Message</label>
-          <textarea class="w-full border border-gray-300 p-2 rounded" id="message" name="message" rows="4" required></textarea>
+          <label for="message" class="block text-sm font-bold mb-1">Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 p-2 rounded" required></textarea>
         </div>
         <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded shadow">Send</button>
       </form>
     </div>
   </div>
-  
-  <!-- JavaScript for Modals and Slideshow -->
+
   <script>
-    // Modal Functionality
-    const modals = {
-      home: document.getElementById('homeModal'),
-      services: document.getElementById('servicesModal'),
-      contact: document.getElementById('contactModal')
-    };
+    // Modal open/close functionality
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
 
-    // Open modal when corresponding nav button is clicked
-    document.getElementById('navHome').addEventListener('click', () => {
-      modals.home.classList.add('active');
+    // Open modals on nav button click
+    document.getElementById('navHome').addEventListener('click', function() {
+      openModal('homeModal');
     });
-    document.getElementById('navServices').addEventListener('click', () => {
-      modals.services.classList.add('active');
+    document.getElementById('navServices').addEventListener('click', function() {
+      openModal('servicesModal');
     });
-    document.getElementById('navContact').addEventListener('click', () => {
-      modals.contact.classList.add('active');
+    document.getElementById('navContact').addEventListener('click', function() {
+      openModal('contactModal');
     });
 
-    // Close modal when clicking on close button
-    document.querySelectorAll('.close-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
+    // Close modals on clicking the close button
+    document.querySelectorAll('.close-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
         const modalId = btn.getAttribute('data-close');
-        document.getElementById(modalId).classList.remove('active');
+        closeModal(modalId);
       });
     });
 
-    // Close modal when clicking outside modal content
-    document.querySelectorAll('.modal').forEach(modal => {
-      modal.addEventListener('click', (e) => {
+    // Close modal when clicking outside the modal content
+    document.querySelectorAll('.modal').forEach(function(modal) {
+      modal.addEventListener('click', function(e) {
         if (e.target === modal) {
           modal.classList.remove('active');
         }
@@ -195,13 +178,13 @@
     const slides = document.querySelectorAll('#slideshow .slide');
     let currentSlide = 0;
 
-    document.getElementById('nextSlide').addEventListener('click', () => {
+    document.getElementById('nextSlide').addEventListener('click', function() {
       slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].classList.add('active');
     });
 
-    document.getElementById('prevSlide').addEventListener('click', () => {
+    document.getElementById('prevSlide').addEventListener('click', function() {
       slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       slides[currentSlide].classList.add('active');
@@ -210,5 +193,7 @@
 </body>
 </html>
 
- 
   
+    
+
+   
